@@ -1,3 +1,15 @@
+# ChatATP Studio SDK
+
+Python SDK for building and interacting with agents created in ChatATP Studio.
+
+- Async-first API
+- Conversation lifecycle management
+- Streaming support
+- Fully typed
+
+![PyPI](https://img.shields.io/pypi/v/chatatp-studio)
+![Python](https://img.shields.io/pypi/pyversions/chatatp-studio)
+
 # chatatp-studio
 
 Official Python SDK for the [ChatATP Studio](https://studio.chat-atp.com) Developer API.
