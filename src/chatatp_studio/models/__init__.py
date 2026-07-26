@@ -140,6 +140,18 @@ class Usage:
 
 @dataclass(frozen=True)
 class StreamEvent:
+    """
+    Represents an SSE event from the ChatATP Developer API.
+    Common types include:
+    - "conversation.message.created"
+    - "message.created"
+    - "tool.execution.started"
+    - "tool.execution.completed"
+    - "agent.response.delta"
+    - "agent.response.completed"
+    - "completion.completed"
+    - "error"
+    """
     type: str
     data: Any
 

@@ -62,13 +62,24 @@ async with ChatATPClient(api_key="chatatp_sk_...") as client:
 ## Streaming
 
 ```python
+import sys
+
 async for event in await client.chat_stream(
     agent_id=7,
     external_user_id="user_12345",
     message="Give me a summary of your return policy.",
 ):
-    if event.type == "agent.response.completed":
-        print(event.data)
+    if event.type == "agent.response.delta":
+        sys.stdout.write(event.data.get("delta", ""))
+        sys.stdout.flush()
+    elif event.type == "tool.execution.started":
+        print(f"\n[Running tool: {event.data.get('name')}]")
+    elif event.type == "tool.execution.completed":
+        print(f"\n[Tool completed. Result: {event.data.get('result')}]")
+    elif event.type == "error":
+        print(f"\n[Error: {event.data.get('message')}]")
+    elif event.type == "agent.response.completed":
+        print("\nFinished!")
 ```
 
 ## Resources
