@@ -1,0 +1,2 @@
+[console_scripts]
+studio = chatatp_studio.cli.__main__:main

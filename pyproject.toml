@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chatatp-studio"
-version = "0.1.1"
+version = "0.2.0"
 description = "Official Python SDK for ChatATP Studio Developer API"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -54,6 +54,14 @@ dev = [
   "twine",
   "ruff"
 ]
+cli = [
+  "click>=8.1",
+  "rich>=13.7",
+  "requests>=2.31"
+]
+
+[project.scripts]
+studio = "chatatp_studio.cli.__main__:main"
 
 [project.urls]
 Homepage = "https://studio.chat-atp.com"
